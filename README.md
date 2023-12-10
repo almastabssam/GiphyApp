@@ -1,0 +1,2 @@
+# GiphyApp
+Technical Test
