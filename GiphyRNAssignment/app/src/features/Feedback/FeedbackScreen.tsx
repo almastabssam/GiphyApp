@@ -3,17 +3,16 @@ import React, {useState} from 'react';
 import {
   View,
   Text,
-  ToastAndroid,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
   Image,
 } from 'react-native';
+import Toast from 'react-native-simple-toast';
 import {moderateScale, scale} from 'react-native-size-matters';
 import TextInputComponent from '../../components/TextInputComponent';
 import {Images} from '../../../config/Images.tsx';
-
-const FeedbackScreen = ({navigation}) => {
+const FeedbackScreen: React.FC = ({navigation}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [rating, setRating] = useState('');
@@ -27,19 +26,19 @@ const FeedbackScreen = ({navigation}) => {
   let updateName = true;
   let updateRating = true;
 
-  const checkNameValue = value => {
+  const checkNameValue = (value: React.SetStateAction<string>) => {
     setName(value);
     setNameFlag(false);
   };
-  const checkEmailValue = value => {
+  const checkEmailValue = (value: React.SetStateAction<string>) => {
     setEmail(value);
     setEmailFlag(false);
   };
-  const checkRatingValue = value => {
+  const checkRatingValue = (value: React.SetStateAction<string>) => {
     setRating(value);
     setRatingFlag(false);
   };
-  const checkFeedbackValue = value => {
+  const checkFeedbackValue = (value: React.SetStateAction<string>) => {
     setFeedback(value);
   };
 
@@ -65,7 +64,7 @@ const FeedbackScreen = ({navigation}) => {
       setEmailFlag(false);
       updateEmail = false;
     }
-    if (!rating) {
+    if (!rating || Number(rating) > 5) {
       setRatingFlag(true);
       updateRating = true;
     } else {
@@ -78,7 +77,7 @@ const FeedbackScreen = ({navigation}) => {
       // Your local storage implementation goes here
 
       // Toast success message
-      ToastAndroid.show('Feedback submitted successfully!', ToastAndroid.SHORT);
+      Toast.show('Feedback Submitted Successfully', Toast.BOTTOM);
 
       // Clear form fields
       setName('');
@@ -92,16 +91,13 @@ const FeedbackScreen = ({navigation}) => {
   };
 
   return (
-    <View style={{flex: 1}}>
-      <View style={{flexDirection: 'row', padding: 10}}>
+    <View style={styles.mainContainer}>
+      <View style={styles.appBar}>
         <TouchableOpacity
           onPress={() => {
             navigation.goBack();
           }}>
-          <Image
-            source={Images.backImage}
-            style={{marginLeft: 10, marginRight: 60, width: 40, height: 40}}
-          />
+          <Image source={Images.backImage} style={styles.backImage} />
         </TouchableOpacity>
         <Text style={styles.heading}>Feedback</Text>
       </View>
@@ -116,6 +112,8 @@ const FeedbackScreen = ({navigation}) => {
             setValue={checkNameValue}
             checkInputValue={nameFlag}
             textInputStyle={{color: 'black'}}
+            keyboardType={'default'}
+            labelText={'This Field is required'}
           />
           <TextInputComponent
             labelName={'EMAIL'}
@@ -123,6 +121,8 @@ const FeedbackScreen = ({navigation}) => {
             setValue={checkEmailValue}
             checkInputValue={emailFlag}
             textInputStyle={{color: 'black'}}
+            keyboardType={'default'}
+            labelText={'This Field is required'}
           />
           <TextInputComponent
             labelName={'Rating'}
@@ -131,12 +131,16 @@ const FeedbackScreen = ({navigation}) => {
             checkInputValue={ratingFlag}
             keyboardType={'numeric'}
             textInputStyle={{color: 'black'}}
+            labelText={'Please provide rating between 1 and 5'}
           />
           <TextInputComponent
             labelName={'Feedback'}
             placeholder={'Enter Your Feedback'}
             setValue={checkFeedbackValue}
             textInputStyle={{color: 'black'}}
+            keyboardType={'default'}
+            checkInputValue={false}
+            labelText={''}
           />
         </View>
 
@@ -151,6 +155,9 @@ const FeedbackScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  mainContainer: {flex: 1},
+  appBar: {flexDirection: 'row', padding: 10},
+  backImage: {marginLeft: 10, marginRight: 60, width: 40, height: 40},
   container: {
     flex: 1,
     margin: moderateScale(20),

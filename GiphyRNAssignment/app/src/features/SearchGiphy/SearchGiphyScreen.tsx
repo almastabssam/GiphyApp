@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -12,12 +12,11 @@ import {moderateScale, scale} from 'react-native-size-matters';
 import {searchGifs} from '../../api';
 import {Images} from '../../../config/Images.tsx';
 
-const SearchGiphyScreen = ({navigation}) => {
+const SearchGiphyScreen: React.FC = ({navigation}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [offset, setOffset] = useState(0);
-  const [refreshing, setRefresing] = useState(false);
-  const searchGifsHandler = async (offset) => {
+  const searchGifsHandler = async (offset : number) => {
     try {
       const newResults = await searchGifs(searchQuery, offset);
       if(newResults && newResults.length) {
@@ -29,22 +28,19 @@ const SearchGiphyScreen = ({navigation}) => {
     }
   };
 
-  const upDateQuery = async query => {
+  const upDateQuery = async (query: React.SetStateAction<string>) => {
     setSearchQuery(query);
     await searchGifsHandler(15);
   };
 
   return (
-    <View style={{flex: 1}}>
-      <View style={{flexDirection: 'row', padding: 10}}>
+    <View style={styles.mainContainer}>
+      <View style={styles.appBar}>
         <TouchableOpacity
           onPress={() => {
             navigation.goBack();
           }}>
-          <Image
-            source={Images.backImage}
-            style={{marginLeft: 10, marginRight: 60,width: 40, height: 40}}
-          />
+          <Image source={Images.backImage} style={styles.backImage} />
         </TouchableOpacity>
         <Text style={styles.heading}>Search Giphy</Text>
       </View>
@@ -84,6 +80,7 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(10),
     marginVertical: moderateScale(10),
     marginHorizontal: moderateScale(20),
+    padding: 10,
     fontSize: scale(14),
   },
   imageViewStyle: {
@@ -111,6 +108,9 @@ const styles = StyleSheet.create({
     color: 'darkred',
     paddingVertical: moderateScale(4),
   },
+  mainContainer: {flex: 1},
+  appBar: {flexDirection: 'row', padding: 10},
+  backImage: {marginLeft: 10, marginRight: 60, width: 40, height: 40},
 });
 
 export default SearchGiphyScreen;

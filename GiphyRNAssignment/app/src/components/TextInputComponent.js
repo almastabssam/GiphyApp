@@ -7,12 +7,11 @@ import {moderateScale, scale} from 'react-native-size-matters';
 const TextInputComponent = ({
   labelName,
   placeholder,
-  container = {},
   textInputStyle = {},
-  labelText = {},
   setValue,
   checkInputValue,
   keyboardType,
+  labelText,
 }) => {
   const [inputValue, setInputValue] = useState('');
 
@@ -22,7 +21,7 @@ const TextInputComponent = ({
   };
 
   return (
-    <View style={{...styles.container, ...container}}>
+    <View style={{...styles.container}}>
       <Text style={{...styles.labelText, ...labelText}}>{labelName}</Text>
       <TextInput
         style={{...styles.textInputStyle, ...textInputStyle}}
@@ -31,9 +30,7 @@ const TextInputComponent = ({
         value={inputValue}
         keyboardType={keyboardType}
       />
-      {checkInputValue && (
-        <Text style={styles.errorText}>This field is required.</Text>
-      )}
+      {checkInputValue && <Text style={styles.errorText}>{labelText}</Text>}
     </View>
   );
 };
@@ -53,6 +50,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: moderateScale(10),
     marginVertical: moderateScale(10),
+    padding: 10,
     fontSize: scale(14),
     color: 'black',
   },

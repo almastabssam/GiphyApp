@@ -12,12 +12,12 @@ import {moderateScale, scale} from 'react-native-size-matters';
 import {getTrendingGifs} from '../../api';
 import {Images} from '../../../config/Images.tsx';
 
-const TrendingGiphyScreen = ({navigation}) => {
+const TrendingGiphyScreen: React.FC = ({navigation}) => {
   const [trendingGifs, setTrendingGifs] = useState([]);
   const [limit, setLimit] = useState(15);
   const [refreshing, setRefresing] = useState(false);
 
-  const loadTrendingGifs = async (limit) => {
+  const loadTrendingGifs = async (limit: number) => {
     try {
       const newGifs = await getTrendingGifs(limit);
       setRefresing(false);
@@ -34,16 +34,13 @@ const TrendingGiphyScreen = ({navigation}) => {
   }, []);
 
   return (
-    <View style={{flex: 1}}>
-      <View style={{flexDirection: 'row', padding: 10}}>
+    <View style={styles.mainContainer}>
+      <View style={styles.appBar}>
         <TouchableOpacity
           onPress={() => {
             navigation.goBack();
           }}>
-          <Image
-            source={Images.backImage}
-            style={{marginLeft: 10, width: 40, height: 40}}
-          />
+          <Image source={Images.backImage} style={styles.backImage} />
         </TouchableOpacity>
         <Text style={styles.heading}>Top Trending Giphy</Text>
       </View>
@@ -66,7 +63,7 @@ const TrendingGiphyScreen = ({navigation}) => {
         onEndReached={() => {
           loadTrendingGifs(limit);
         }}
-        onRefresh={()=>{
+        onRefresh={() => {
           setLimit(15);
           loadTrendingGifs(15);
         }}
@@ -103,6 +100,9 @@ const styles = StyleSheet.create({
     marginLeft: 70,
     paddingVertical: moderateScale(4),
   },
+  mainContainer: {flex: 1},
+  appBar: {flexDirection: 'row', padding: 10},
+  backImage: {marginLeft: 10, width: 40, height: 40},
 });
 
 export default TrendingGiphyScreen;
