@@ -83,16 +83,22 @@ It spent 4 hours for development and 1 hour for finializng the styling and git r
 
 I used the react native official docs for help in navigations and also used the Giphy APIs explorer for checking the response and parameters of APIs.
 
-# Troubleshooting
+## Android Screenshots:
+![Screenshot_1702276048](https://github.com/almastabssam/GiphyApp/assets/71845533/e39ae51e-fee0-43b6-9d97-c0ed746c8ef2)
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
 
-# Learn More
+![Screenshot_1702276067](https://github.com/almastabssam/GiphyApp/assets/71845533/a5243d94-465d-4f21-bcd4-039568833653)
 
-To learn more about React Native, take a look at the following resources:
+![Screenshot_1702276088](https://github.com/almastabssam/GiphyApp/assets/71845533/4c91d179-82be-42cb-aab2-0b39bfd868f4)
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+![Screenshot_1702276096](https://github.com/almastabssam/GiphyApp/assets/71845533/f4c1ac0f-10f6-40aa-b669-49fc7ab381bb)
+
+![Screenshot_1702276104](https://github.com/almastabssam/GiphyApp/assets/71845533/cf3abe8a-3870-42fb-a04f-23a6d90283fe)
+
+
+![Screenshot_1702276136](https://github.com/almastabssam/GiphyApp/assets/71845533/e167018b-d407-43ed-9948-7621ac00c9a7)
+
+
+![Screenshot_1702276140](https://github.com/almastabssam/GiphyApp/assets/71845533/bac0d9d5-21f9-4c67-9065-e4988cba1bec)
+
+
