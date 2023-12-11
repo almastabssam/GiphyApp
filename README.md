@@ -3,6 +3,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## 1. How to run test the application
 
 ## Step 1: Start the Metro Server
 
@@ -59,10 +60,28 @@ Now that you have successfully run the app, let's modify it.
 
 You've successfully run and modified your React Native App. :partying_face:
 
-### Now what?
+## 2. Reasoning behind the approach taken?
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+My Approach consist of following steps:
+1- First i define the project structure
+2- Define the sample component in type script
+3- Find the some of the common components that use all over the applications
+4- Then i initgtate the some of the basic libraries for navigations
+5- I test the apis using key and also from the api explorer in Giphy Explorer
+6- Now i understand the api logic and data then i intigrate in the application
+
+## 3. Assumptions made?
+
+No, Assumption made i clear all the requirements about apis and also for the design then started the assignment
+
+## 4.Total Time Taken?
+It spent 4 hours for development and 1 hour for finializng the styling and git repo and updating the readme.
+
+## 5. Which solutions relied on googling hints, tips or answers; Googling is acceptable, but you 
+## should be prepared to explain your understanding of the solution and provide references to 
+## the source material as applicable?
+
+I used the react native official docs for help in navigations and also used the Giphy APIs explorer for checking the response and parameters of APIs.
 
 # Troubleshooting
 
