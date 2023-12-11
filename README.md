@@ -84,7 +84,8 @@ It spent 4 hours for development and 1 hour for finializng the styling and git r
 I used the react native official docs for help in navigations and also used the Giphy APIs explorer for checking the response and parameters of APIs.
 
 ## Android Screenshots:
-![Screenshot_1702276048](https://github.com/almastabssam/GiphyApp/assets/71845533/e39ae51e-fee0-43b6-9d97-c0ed746c8ef2)
+<img src="https://github.com/almastabssam/GiphyApp/assets/71845533/e39ae51e-fee0-43b6-9d97-c0ed746c8ef2" width="100" height="100">
+
 
 
 ![Screenshot_1702276067](https://github.com/almastabssam/GiphyApp/assets/71845533/a5243d94-465d-4f21-bcd4-039568833653)
